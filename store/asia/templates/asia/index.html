@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Asia Store - официальный авторизованный партнёр Apple в Кыргызстане. Мы предлагаем широкий выбор техники и аксессуаров.">
+    <title>{% block title %}Главная страница магазина{% endblock %}</title>
+    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header_inner container">
+            <div class="logo">
+                <img src="{% static 'image/logomobile.png' %}" alt="Логотип Asia Store">
+            </div>
+            <nav class="list_tech">
+                <ul>
+                    <li>iPhone</li>
+                    <li>iPad</li>
+                    <li>Mac</li>
+                    <li>Watch</li>
+                    <li>AirPods</li>
+                    <li>Garmin</li>
+                    <li>Music</li>
+                    <li>JBL</li>
+                    <li><a href="{% url 'purchase_history' %}">История покупок</a></li>
+                    <li><a href="{% url 'cart' %}"><img src="{% static 'image/icons8-crushing-bucket-32.png' %}"
+                                                        alt="Cart"></a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                {% if request.user.is_authenticated %}
+                <a class="link_size" href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                <a class="link_size" href="{% url 'login' %}">Войти</a>
+                <a class="link_size" href="{% url 'register' %}">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="slide">
+            <div class="slide_text">Самые лучшие товары</div>
+            <img src="{% static 'image/webimacm3dljateksta.jpg' %}" alt="Изображение слайдера">
+            <a href="#" class="animated_button">Подробнее</a>
+        </div>
+    </div>
+
+    <div class="banner_slider">
+        <div class="banner_title">Новинки и предложения</div>
+        <div class="banner_img">
+            <div class="banner_item">
+                <p class="banner_text">Native.Union</p>
+                <div class="banner_subtext">Кабели и переходники высочайшего качества</div>
+                <img src="{% static 'image/native_union_vert.jpg' %}" alt="Кабели Native.Union">
+            </div>
+            <div class="banner_item">
+                <p class="banner_text">AirDog</p>
+                <div class="banner_subtext">Очистители и увлажнители воздуха TPA</div>
+                <img src="{% static 'image/banner-airdog-vert.jpg' %}" alt="Очистители AirDog">
+            </div>
+            <div class="banner_item">
+                <p class="banner_text">Apple Open Box</p>
+                <div class="banner_subtext">Гарантированное качество Apple по сниженной цене</div>
+                <img src="{% static 'image/banner-openbox-vert.jpg' %}" alt="Apple Open Box">
+            </div>
+        </div>
+    </div>
+
+    <div class="cattab_list">
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='apple' %}">
+                <img src="{% static 'svg/iphone.svg' %}" alt="iPhone">
+                iPhone
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='mac' %}">
+                <img src="{% static 'svg/imac.svg' %}" alt="Mac">
+                Mac
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='ipad' %}">
+                <img src="{% static 'svg/ipad.svg' %}" alt="iPad">
+                iPad
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='watch' %}">
+                <img src="{% static 'svg/watch.svg' %}" alt="Watch">
+                Watch
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='airpods' %}">
+                <img src="{% static 'svg/airpods.svg' %}" alt="AirPods">
+                AirPods
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='audio' %}">
+                <img src="{% static 'svg/audio.svg' %}" alt="Audio">
+                Audio
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='accessories' %}">
+                <img src="{% static 'svg/accessories.svg' %}" alt="Аксессуары">
+                Accessories
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='gadgets' %}">
+                <img src="{% static 'svg/gadgets.svg' %}" alt="Гаджеты">
+                Gadgets
+            </a>
+        </div>
+
+        <div class="cattab_item animated_item">
+            <a href="{% url 'store_list_category' store_slug='garmin' %}">
+                <img src="{% static 'svg/garmin.svg' %}" alt="Garmin">
+                Garmin
+            </a>
+        </div>
+    </div>
+
+
+    <div class="iPhone_list">
+        <a href="{% url 'iphone15' %}" class="iPhone_item_link">
+            <div class="iPhone_item animated_item">
+                <div>iPhone 15</div>
+                <img src="{% static 'image/iphone15green1-450x450.jpg' %}" alt="iPhone 15">
+                <div>от 77 000 сом</div>
+            </div>
+        </a>
+
+        <a href="{% url 'iphone15pro' %}" class="iPhone_item_link">
+            <div class="iPhone_item animated_item">
+                <div>iPhone 15 Pro</div>
+                <img src="{% static 'image/iphone_15_pro_max_blue_titanium_pdp_image_position-1__ww-en-450x450.jpg' %}"
+                     alt="iPhone 15 Pro">
+                <div>от 103 000 сом</div>
+            </div>
+        </a>
+
+        <a href="{% url 'iphone15promax' %}" class="iPhone_item_link">
+            <div class="iPhone_item animated_item">
+                <div>iPhone 15 Pro Max</div>
+                <img src="{% static 'image/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en-450x450.jpg' %}"
+                     alt="iPhone 15 Pro Max">
+                <div>от 122 990 сом</div>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="reseller">
+        <h3>Asia Store – первый официальный авторизованный партнёр Apple в Кыргызстане со статусом Apple Authorised
+            Reseller.</h3>
+    </div>
+    <div class="about_us_text">
+        <div class="about_us">
+            В нашем магазине можно не только купить iPhone, компьютер Mac или планшет iPad, а также другую технику Apple
+            и аксессуары для неё. Asia Store – это место, в котором вам помогут с выбором техники, научат ей
+            пользоваться, дадут советы по эксплуатации ваших гаджетов и предложат качественные аксессуары.
+        </div>
+        <div class="additional_info">
+            Наш магазин является единственным авторизованным реселлером Apple и Garmin в Кыргызстане, а также
+            официальным дистрибьютором техники ASUS.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

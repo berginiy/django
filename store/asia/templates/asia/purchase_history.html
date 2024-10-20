@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>История покупок</title>
+    <link type="text/css" href="{% static 'css/history.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>История покупок</h1>
+
+    {% if purchased_items %}
+    <ul>
+        {% for item in purchased_items %}
+        <li>
+            {{ item.product.title }} - {{ item.quantity }} шт. - {{ item.purchase_date }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>У вас нет покупок.</p>
+    {% endif %}
+</div>
+</body>
+</html>

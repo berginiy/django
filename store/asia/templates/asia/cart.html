@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link type="text/css" href="{% static 'css/cart.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Корзина</h1>
+
+    <form id="purchase-form" action="{% url 'confirm_purchase' %}" method="post">
+        {% csrf_token %}
+        {% if cart_items %}
+        <ul id="cart-items">
+            {% for item in cart_items %}
+            <li>{{ item.title }} - {{ item.price }} сом ({{ item.quantity }})</li>
+            {% endfor %}
+        </ul>
+
+        <button type="submit">Подтвердить покупку</button>
+        {% else %}
+        <p id="empty-cart-message">Ваша корзина пуста.</p>
+        {% endif %}
+    </form>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const purchaseForm = document.getElementById('purchase-form');
+
+        if (purchaseForm) {
+            purchaseForm.onsubmit = function(event) {
+                // Убираем preventDefault, чтобы форма отправлялась на сервер
+                // event.preventDefault();
+
+                alert('Заказ успешно оформлен!');
+            };
+        }
+
+        const cartItems = document.getElementById('cart-items');
+        if (cartItems && cartItems.children.length === 0) {
+            document.getElementById('empty-cart-message').style.display = 'block';
+        }
+    });
+</script>
+</body>
+</html>

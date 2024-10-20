@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/iphone.css' %}">
+    <title>iPhone 15 Pro Max</title>
+</head>
+<body>
+<div class="container">
+    <h1>iPhone 15 Pro Max</h1>
+    <div class="product-details">
+        <img src="{% static 'image/iphone_15_pro_max_natural_titanium_pdp_image_position-1__ww-en-450x450.jpg' %}"
+             alt="iPhone 15">
+        <div class="product-info">
+            <div class="price">Цена: от 122 990 сом</div>
+            <p class="description">Подробное описание iPhone 15 Pro Max. Этот телефон обладает передовыми технологиями,
+                включая...</p>
+            <a href="{% url 'add_to_cart' product.id %}" class="buy_button">Купить сейчас</a>
+            <a href="{% url 'home' %}" class="back_button">Назад в магазин</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

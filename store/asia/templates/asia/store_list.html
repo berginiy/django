@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store List</title>
+    <link type="text/css" href="{% static 'css/store_list.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Наши магазины и товары</h1>
+
+    <div class="category_filter">
+        <h3>Категории</h3>
+        <ul>
+            <li><a href="{% url 'home' %}">Все категории</a></li>
+            {% for category in stores %}
+            <li><a href="{% url 'store_list_by_category' category.id %}">{{ category.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="store_list">
+        {% if stores %}
+        {% for store in stores %}
+        <h2>{{ store.title }}</h2>
+        <div class="product_list">
+            {% for product in store.products.all %}
+            <div class="product_item">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                <div class="product_info">
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.description }}</p>
+                    <div class="price">{{ product.price }} сом</div>
+                    <a class="buy_button" href="{% url 'product_detail' product.slug %}">Подробнее</a>
+                </div>
+            </div>
+            {% empty %}
+            <p>Нет доступных товаров в этом магазине.</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Магазины отсутствуют.</p>
+        {% endif %}
+    </div>
+
+
+</div>
+
+</body>
+</html>

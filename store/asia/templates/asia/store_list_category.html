@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    {% load static %}
+    <link type="text/css" href="{% static 'css/category.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Apple Store Categories</h1>
+
+    <div class="categories">
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='apple' %}">iPhone</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='mac' %}">Mac</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='ipad' %}">iPad</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='watch' %}">Watch</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='airpods' %}">AirPods</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='audio' %}">Audio</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='accessories' %}">Accessories</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='gadgets' %}">Gadgets</a>
+        </div>
+        <div class="category-item">
+            <a href="{% url 'store_list_category' store_slug='garmin' %}">Garmin</a>
+        </div>
+    </div>
+
+    <div class="product_list">
+        {% for product in products %}
+        <div class="product-item">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="product_info">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p class="price">{{ product.price }} USD</p>
+                <a href="{% url 'add_to_cart' product.id %}" class="buy_button">Buy Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="back-button">
+        <a href="{% url 'home' %}" class="buy_button">Назад на главную</a>
+    </div>
+</div>
+
+<div class="cart-icon">
+    <a href="{% url 'cart' %}"><img src="{% static 'image/icons8-crushing-bucket-32.png' %}" alt="Cart"></a>
+</div>
+
+</body>
+</html>
