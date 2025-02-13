@@ -8,13 +8,9 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
 import os
-import sys
-
-sys.path.append('/home/ubuntu/myproject')
-sys.path.append('/home/ubuntu/myproject/venv/lib/python3.12/site-packages')
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
-
 from django.core.wsgi import get_wsgi_application
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'store.settings')
+
 application = get_wsgi_application()
+

@@ -184,7 +184,7 @@ def purchase_success(request):
 
 def iphone15(request):
     product = get_object_or_404(Product, slug="iphone-15")
-    return render(request, 'asia/iphone15.html', {'product': product})
+    return render(request, 'asia/ iphone15.html', {'product': product})
 
 
 def iphone15pro(request):
