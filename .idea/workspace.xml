@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e97494e9-c1ec-405b-b84a-98ba3ebd5eb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/asia/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/asia/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/store/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/store/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/store/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/store/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/store/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/store/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,14 +34,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ProBook/Documents/BookStore/backend"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ProBook/Documents/AltynProject/Project&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Project" />

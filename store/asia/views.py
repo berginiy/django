@@ -16,6 +16,8 @@ from .models import Store, Product, PurchasedProduct
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from .serializers import PurchasedProductSerializer
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 class Home(ListView):
@@ -130,16 +132,21 @@ class PurchaseCreateView(generics.CreateAPIView):
     serializer_class = PurchasedProductSerializer
     permission_classes = [IsAuthenticated]
 
+    @swagger_auto_schema(
+        operation_description="Создание записи о покупке. Очищает корзину после успешного выполнения.",
+        request_body=PurchasedProductSerializer,
+        responses={
+            201: "Покупка успешно создана",
+            400: "Ошибка валидации или пустая корзина",
+        }
+    )
     def perform_create(self, serializer):
         cart = self.request.session.get('cart', {})
-
         if not cart:
             raise ValueError("Корзина пуста. Невозможно совершить покупку.")
-
         for product_id, item in cart.items():
             product = get_object_or_404(Product, id=product_id)
-            serializer.save(user=self.request.user.id, product=product.id, quantity=item['quantity'])
-
+            serializer.save(user=self.request.user, product=product, quantity=item['quantity'])
         self.request.session['cart'] = {}
         self.request.session.modified = True
 
